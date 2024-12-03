@@ -16,7 +16,12 @@ router.get('/', async (req, res) => {
     `;
     const data1 = await request.query(queryData);
     const data2 =data1.recordset;
-    res.status(200).json({data2});
+    if (data2.recordset.length > 0) {
+      res.status(200).json({ data: data2 });
+  } else {
+      res.status(404).json({ message: "No data found" });  // Trả về JSON với mã 404 khi không có dữ liệu
+  }
+  
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Error connecting to SQL Server' });
