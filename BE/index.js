@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const session = require("express-session");
 const { v4: uuidv4 } = require("uuid");
-
+const FullDataRouter =require("./component/FullData");
 
 const app = express();
 const port = 4000;
@@ -28,6 +28,7 @@ app.get("/api/status", (req, res) => {
   res.status(200).send("Backend is up and running.");
 });
 
+app.use("/api/fullData", FullDataRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
