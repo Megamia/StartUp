@@ -3,6 +3,8 @@ const cors = require("cors");
 const session = require("express-session");
 const { v4: uuidv4 } = require("uuid");
 const FullDataRouter =require("./component/FullData");
+const AddDataRouter =require("./component/AddData")
+const DeleteDataRouter =require("./component/DeleteData")
 
 const app = express();
 const port = 4000;
@@ -29,6 +31,8 @@ app.get("/api/status", (req, res) => {
 });
 
 app.use("/api/fullData", FullDataRouter);
+app.use("/api/addData", AddDataRouter);
+app.use("/api/deleteData", DeleteDataRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
