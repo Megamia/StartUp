@@ -5,7 +5,6 @@ const Home = () => {
 
     const [data,setData]=useState([]);
     useEffect(()=>{
-
         const fetchData=async()=>{
             try {
                 const response=await axios.get(`${process.env.REACT_APP_API_URL}/api/fullData`);
